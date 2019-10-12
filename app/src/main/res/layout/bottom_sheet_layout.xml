@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="56dp"
+    android:background="@drawable/border_bottom_bar"
+    android:id="@+id/bottomSheet"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+        <TextView
+            android:id="@+id/textViewFacebook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="16dp"
+            android:fontFamily="sans-serif"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:text="What you want to change?"
+            android:textSize="14sp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/facebookView"
+        app:layout_constraintEnd_toEndOf="@+id/textViewFacebook"
+        app:layout_constraintTop_toTopOf="@+id/textViewFacebook">
+
+        <com.github.zagum.switchicon.SwitchIconView
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            app:si_animation_duration="500"
+            app:si_disabled_alpha=".3"
+            app:si_disabled_color="#b7b7b7"
+            app:si_enabled="true"
+            app:si_no_dash="false"
+            app:si_tint_color="@color/colorPrimary"
+            app:srcCompat="@drawable/ic_info_outline_black_24dp" />
+
+    </LinearLayout>
+
+        <View
+            android:id="@+id/facebookView"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/fui_transparent"
+            app:layout_constraintTop_toBottomOf="@id/textViewFacebook" />
+
+        <TextView
+            android:id="@+id/textViewTwitter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_dark_mode_gray_24dp"
+            android:drawableLeft="@drawable/ic_dark_mode_gray_24dp"
+            android:drawablePadding="16dp"
+            android:fontFamily="sans-serif"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:text="Dark Mode"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/facebookView" />
+
+        <com.polyak.iconswitch.IconSwitch
+            android:id="@+id/switch_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            app:isw_icon_left="@drawable/ic_brightness_white_18dp"
+            app:isw_icon_right="@drawable/ic_night_white_18dp"
+            app:layout_constraintEnd_toEndOf="@+id/textViewTwitter"
+            app:layout_constraintTop_toBottomOf="@+id/textViewFacebook"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <View
+            android:id="@+id/twitterView"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/fui_transparent"
+            app:layout_constraintTop_toBottomOf="@id/textViewTwitter" />
+
+        <TextView
+            android:id="@+id/textViewInstagram"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_translate_gray_24dp"
+            android:drawableLeft="@drawable/ic_translate_gray_24dp"
+            android:drawablePadding="16dp"
+            android:fontFamily="sans-serif"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:text="Language"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/twitterView" />
+
+
+        <com.polyak.iconswitch.IconSwitch
+            android:id="@+id/switchLanguage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            app:isw_icon_left="@drawable/ic_format_list_bulleted_white_18dp"
+            app:isw_icon_right="@drawable/ic_location_on_white_18dp"
+            app:layout_constraintEnd_toEndOf="@+id/textViewInstagram"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTwitter" />
+
+        <View
+            android:id="@+id/instagramView"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/fui_transparent"
+            app:layout_constraintTop_toBottomOf="@id/textViewInstagram" />
+
+        <TextView
+            android:id="@+id/textViewLinkedin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_color_lens_gray_24dp"
+            android:drawableLeft="@drawable/ic_color_lens_gray_24dp"
+            android:drawablePadding="16dp"
+            android:fontFamily="sans-serif"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:text="Colorpalette"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/instagramView" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:layout_marginEnd="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/viewInsta"
+            app:layout_constraintEnd_toEndOf="@+id/textViewLinkedin"
+            app:layout_constraintTop_toBottomOf="@+id/textViewInstagram">
+
+            <com.github.zagum.switchicon.SwitchIconView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                app:si_animation_duration="500"
+                app:si_disabled_alpha=".3"
+                app:si_disabled_color="#b7b7b7"
+                app:si_enabled="true"
+                app:si_no_dash="false"
+                app:si_tint_color="@color/colorAccent"
+                app:srcCompat="@drawable/ic_invert_colors_black_24dp" />
+
+            <com.github.zagum.switchicon.SwitchIconView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                app:si_animation_duration="500"
+                app:si_disabled_alpha=".3"
+                app:si_disabled_color="#b7b7b7"
+                app:si_enabled="true"
+                app:si_no_dash="false"
+                app:si_tint_color="@color/colorPrimary"
+                app:srcCompat="@drawable/ic_invert_colors_black_24dp" />
+
+            <com.github.zagum.switchicon.SwitchIconView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                app:si_animation_duration="500"
+                app:si_disabled_alpha=".3"
+                app:si_disabled_color="#b7b7b7"
+                app:si_enabled="true"
+                app:si_no_dash="false"
+                app:si_tint_color="#ff3c00"
+                app:srcCompat="@drawable/ic_invert_colors_black_24dp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/viewInsta"
+            android:background="@color/fui_transparent"
+            app:layout_constraintTop_toBottomOf="@id/textViewLinkedin" />
+
+        <TextView
+            android:id="@+id/textViewTypography"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_font_download_gray_24dp"
+            android:drawableLeft="@drawable/ic_font_download_gray_24dp"
+            android:drawablePadding="16dp"
+            android:fontFamily="sans-serif"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:text="Typography"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/viewInsta" />
+
+        <androidx.appcompat.widget.ToggleGroup
+            android:id="@+id/groupTextAlignment"
+            style="@style/Widget.Material.ToggleGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginEnd="16dp"
+            app:allowUnselected="false"
+            app:divider="@drawable/toggle_divider"
+            app:exclusive="true"
+            app:layout_constraintBottom_toTopOf="@+id/viewFontSize"
+            app:layout_constraintEnd_toEndOf="@+id/textViewTypography"
+            app:layout_constraintTop_toBottomOf="@+id/viewInsta"
+            app:orientation="horizontal">
+
+            <androidx.appcompat.widget.ToggleButton
+                android:id="@+id/buttonAlignLeft"
+                style="@style/Widget.Material.ToggleButton"
+                android:button="@drawable/ic_format_align_left_black_24dp" />
+
+            <androidx.appcompat.widget.ToggleButton
+                android:id="@+id/buttonAlignCenter"
+                style="@style/Widget.Material.ToggleButton"
+                android:button="@drawable/ic_format_align_justify_black_24dp"
+                android:checked="true" />
+
+            <androidx.appcompat.widget.ToggleButton
+                android:id="@+id/buttonAlignRight"
+                style="@style/Widget.Material.ToggleButton"
+                android:button="@drawable/ic_format_align_center_black_24dp" />
+
+        </androidx.appcompat.widget.ToggleGroup>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/viewFontSize"
+            android:background="@color/fui_transparent"
+            app:layout_constraintTop_toBottomOf="@id/textViewTypography" />
+
+        <TextView
+            android:id="@+id/textViewFontSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_format_size_gray_24dp"
+            android:drawableLeft="@drawable/ic_format_size_gray_24dp"
+            android:drawablePadding="16dp"
+            android:fontFamily="sans-serif"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:text="Font Size"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/viewFontSize" />
+
+    <androidx.appcompat.widget.ToggleGroup
+        android:id="@+id/groupTextButton"
+        style="@style/Widget.Material.ToggleGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        app:allowUnselected="false"
+        app:divider="@drawable/toggle_divider"
+        app:exclusive="true"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="@+id/textViewFontSize"
+        app:layout_constraintTop_toBottomOf="@+id/viewFontSize"
+        app:orientation="horizontal">
+
+        <androidx.appcompat.widget.ToggleButton
+            android:id="@+id/buttonAlignL"
+            style="@style/Widget.Material.ToggleButton"
+            android:button="@drawable/ic_format_align_left_black_24dp" />
+
+        <androidx.appcompat.widget.ToggleButton
+            android:id="@+id/buttonAlignC"
+            style="@style/Widget.Material.ToggleButton"
+            android:button="@drawable/ic_format_align_justify_black_24dp"
+            android:checked="true" />
+
+        <androidx.appcompat.widget.ToggleButton
+            android:id="@+id/buttonAlignR"
+            style="@style/Widget.Material.ToggleButton"
+            android:button="@drawable/ic_format_align_center_black_24dp" />
+
+    </androidx.appcompat.widget.ToggleGroup>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#bdbdbd"
+        app:layout_constraintTop_toBottomOf="@id/textViewFontSize" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

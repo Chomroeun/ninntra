@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "661971969938",
+    "firebase_url": "https://ninntra.firebaseio.com",
+    "project_id": "ninntra",
+    "storage_bucket": "ninntra.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:661971969938:android:d444caa50d6f12ff3b434b",
+        "android_client_info": {
+          "package_name": "com.ninntra.development"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "661971969938-p8lr4toubt1iv6krddiq0g02g7r3ujnn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ninntra.development",
+            "certificate_hash": "63fc6c2bf11f54ef675ea1862112b3f179c2926f"
+          }
+        },
+        {
+          "client_id": "661971969938-5g853luuar2maqofharmcea310lft0k2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1MqJxsYQuj0qWBsxjJI8CJPqgDgMpZaM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "661971969938-5g853luuar2maqofharmcea310lft0k2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
