@@ -6,16 +6,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:behavior_hideable="true"
     app:behavior_peekHeight="56dp"
-    android:background="@drawable/border_bottom_bar"
+    android:background="@color/white"
     android:id="@+id/bottomSheet"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
     xmlns:tools="http://schemas.android.com/tools">
 
-
-        <TextView
-            android:id="@+id/textViewFacebook"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+    <TextView
+        android:id="@+id/textViewFacebook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
             android:drawablePadding="16dp"
             android:fontFamily="sans-serif"
             android:gravity="center_vertical"

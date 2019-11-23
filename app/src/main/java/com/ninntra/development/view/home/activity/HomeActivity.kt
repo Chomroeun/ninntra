@@ -2,40 +2,50 @@ package com.ninntra.development.view.home.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.widget.ImageView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.github.zagum.switchicon.SwitchIconView
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.button.MaterialButton
 import com.ninntra.development.R
+import com.ninntra.development.model.AddressItem
+import com.ninntra.development.model.Album
 import com.ninntra.development.view.bottomview.fragment.BottomSheetFragment
 import com.ninntra.development.view.home.adapter.SectionsPagerAdapter
+import com.ninntra.development.view.home.viewmodel.AlbumViewModel
 import com.ninntra.development.view.search.activity.MainActivity
 import kotlinx.android.synthetic.main.bottom_sheet_layout.*
+
+val TAB_TITLES = arrayOf(
+    "TAB 1","TAB 2","TAB 3","TAB 4","TAB 5"
+)
+
+val TAB_FRAGMENT: MutableList<Fragment> = arrayListOf(
+    Fragment(),Fragment(), Fragment(), Fragment(), Fragment()
+)
 
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
+    private var albumViewModel: AlbumViewModel? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
-        val viewPager: ViewPager = findViewById(R.id.view_pager)
-        viewPager.adapter = sectionsPagerAdapter
-        val tabs: TabLayout = findViewById(R.id.tabs)
-        tabs.setupWithViewPager(viewPager)
+        initTabData()
+
         val fab: SwitchIconView = findViewById(R.id.fab)
-
         fab.setOnClickListener {
-
             showBottomSheetDialogFragment()
         }
 
@@ -72,10 +82,40 @@ class HomeActivity : AppCompatActivity() {
                 }
             }
         })
+
+        albumViewModel = ViewModelProviders.of(this).get(AlbumViewModel::class.java)
     }
 
     private fun showBottomSheetDialogFragment() {
         val bottomSheetFragment = BottomSheetFragment()
         bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
+    }
+
+    private fun initTabData(){
+
+        val sectionsPagerAdapter = SectionsPagerAdapter(
+            TAB_FRAGMENT,TAB_TITLES, supportFragmentManager
+        )
+
+        val viewPager: ViewPager = findViewById(R.id.view_pager)
+        viewPager.adapter = sectionsPagerAdapter
+
+        val tabs: TabLayout = findViewById(R.id.tabs)
+        tabs.setupWithViewPager(viewPager)
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        albumViewModel!!.getAlbums().observe(
+            this,
+            Observer {
+                val listItem:List<Album> = it
+                for(item in listItem){
+                    Log.d("DDD",item.getAlbum())
+                }
+            }
+        )
     }
 }

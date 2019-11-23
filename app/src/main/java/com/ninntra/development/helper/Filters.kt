@@ -7,9 +7,7 @@ import com.ninntra.development.R
 import com.ninntra.development.model.Restaurant
 import com.ninntra.development.util.RestaurantUtil
 
-/**
- * Object for passing filters around.
- */
+
 class Filters {
 
     var category: String? = null

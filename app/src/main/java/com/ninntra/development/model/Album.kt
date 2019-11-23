@@ -1,16 +1,12 @@
 package com.ninntra.development.model
 
-class Album {
-    var name: String? = null
-    var numOfSongs: Int = 0
-    var thumbnail: Int = 0
+import java.io.Serializable
 
-    constructor() {}
+class Album(var name: String, var numOfSongs: Int, var thumbnail: String): Serializable {
 
-    constructor(name: String, numOfSongs: Int, thumbnail: Int) {
-        this.name = name
-        this.numOfSongs = numOfSongs
-        this.thumbnail = thumbnail
+    constructor():this("",0,"")
+
+    fun getAlbum():String{
+        return "$name -> $numOfSongs -> $thumbnail"
     }
-
 }

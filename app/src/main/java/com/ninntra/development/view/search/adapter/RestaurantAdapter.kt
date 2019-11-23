@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.ktx.toObject
 import com.ninntra.development.R
 import com.ninntra.development.model.Restaurant
 import com.ninntra.development.util.RestaurantUtil
@@ -45,7 +46,8 @@ open class RestaurantAdapter(query: Query, private val listener: OnRestaurantSel
             listener: OnRestaurantSelectedListener?
         ) {
 
-            val restaurant = snapshot.toObject(Restaurant::class.java) ?: return
+            //val restaurant = snapshot.toObject(Restaurant::class.java) ?: return
+            val restaurant = snapshot.toObject<Restaurant>() ?: return
 
             val resources = itemView.resources
 

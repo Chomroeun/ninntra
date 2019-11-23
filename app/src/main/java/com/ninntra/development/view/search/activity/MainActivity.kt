@@ -23,6 +23,8 @@ import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.ninntra.development.R
 import com.ninntra.development.helper.Filters
 import com.ninntra.development.model.Restaurant
@@ -62,7 +64,7 @@ class MainActivity : AppCompatActivity(),
         FirebaseFirestore.setLoggingEnabled(true)
 
         // Firestore
-        firestore = FirebaseFirestore.getInstance()
+        firestore = Firebase.firestore
 
         // Get ${LIMIT} restaurants
         query = firestore.collection("restaurants")

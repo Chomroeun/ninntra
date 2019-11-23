@@ -31,6 +31,10 @@
         <activity
             android:name=".view.search.activity.RestaurantDetailActivity"
             android:theme="@style/AppTheme.Activity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

@@ -37,12 +37,13 @@
                         android:id="@+id/title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="16dp"
-                        android:paddingTop="16dp"
-                        android:paddingStart="0dp"
+                        android:fontFamily="@font/nova_round"
                         android:gravity="left"
                         android:minHeight="?actionBarSize"
                         android:padding="@dimen/appbar_padding"
+                        android:paddingStart="0dp"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="16dp"
                         android:text="@string/app_name"
                         android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
                     <LinearLayout
@@ -51,6 +52,21 @@
                         android:gravity="end"
                         android:layout_marginRight="16dp"
                         android:layout_height="match_parent">
+
+                        <com.github.zagum.switchicon.SwitchIconView
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:padding="3dp"
+                            app:si_animation_duration="500"
+                            android:layout_marginTop="12dp"
+                            app:si_disabled_alpha=".3"
+                            android:layout_marginEnd="5dp"
+                            app:si_disabled_color="#b7b7b7"
+                            app:si_enabled="true"
+                            app:si_no_dash="false"
+                            app:si_tint_color="#FAFAFA"
+                            app:srcCompat="@drawable/ic_home_black_24dp" />
+
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/buttonSearch"

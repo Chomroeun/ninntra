@@ -13,29 +13,26 @@ import com.ninntra.development.view.home.viewmodel.PageViewModel
 import com.ninntra.development.model.Album
 import androidx.recyclerview.widget.GridLayoutManager
 import android.util.TypedValue
+import android.widget.Toast
+import androidx.lifecycle.Observer
 import com.ninntra.development.R
 import kotlin.math.roundToInt
 
 
 
-
-/**
- * A placeholder fragment containing a simple view.
- */
 class PlaceholderFragment : Fragment(){
 
-    private lateinit var pageViewModel: PageViewModel
+    //private lateinit var pageViewModel: PageViewModel
 
     private var recyclerView: RecyclerView? = null
     private var adapter: AlbumsAdapter? = null
-    //private var albumList: List<Album>? = null
-    private var albumList: MutableList<Album> = mutableListOf<Album>()
+    private var albumList: MutableList<Album> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        pageViewModel = ViewModelProviders.of(this).get(PageViewModel::class.java).apply {
-            setIndex(arguments?.getInt(ARG_SECTION_NUMBER) ?: 1)
-        }
+//        pageViewModel = ViewModelProviders.of(this).get(PageViewModel::class.java).apply {
+//            setIndex(arguments?.getInt(ARG_SECTION_NUMBER) ?: 1)
+//        }
     }
 
     override fun onCreateView(
@@ -43,9 +40,8 @@ class PlaceholderFragment : Fragment(){
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_home, container, false)
-//        val textView: TextView = root.findViewById(R.id.section_label)
 //        pageViewModel.text.observe(this, Observer<String> {
-//            textView.text = it
+//            Toast.makeText(context,it,Toast.LENGTH_LONG).show()
 //        })
 
         recyclerView = root.findViewById(R.id.recycler_view)
@@ -58,10 +54,19 @@ class PlaceholderFragment : Fragment(){
         recyclerView!!.addItemDecoration(GridSpacingItemDecoration(2, dpToPx(10), true))
         recyclerView!!.adapter = adapter
 
-        prepareAlbums()
-
+        //prepareAlbums()
 
         return root
+    }
+
+    override fun onStart() {
+        super.onResume()
+        //Toast.makeText(context,"This is onStart()",Toast.LENGTH_LONG).show()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        //Toast.makeText(context,"This is on onResume()",Toast.LENGTH_LONG).show()
     }
 
     companion object {
@@ -128,53 +133,53 @@ class PlaceholderFragment : Fragment(){
     }
 
 
-    private fun prepareAlbums() {
-        val covers = intArrayOf(
-            R.drawable.album1,
-            R.drawable.album2,
-            R.drawable.album3,
-            R.drawable.album4,
-            R.drawable.album5,
-            R.drawable.album6,
-            R.drawable.album7,
-            R.drawable.album8,
-            R.drawable.album9,
-            R.drawable.album10,
-            R.drawable.album11
-        )
-
-        var a = Album("True Romance", 13, covers[0])
-        albumList.add(a)
-
-        a = Album("Xscpae", 8, covers[1])
-        albumList.add(a)
-
-        a = Album("Maroon 5", 11, covers[2])
-        albumList.add(a)
-
-        a = Album("Born to Die", 12, covers[3])
-        albumList.add(a)
-
-        a = Album("Honeymoon", 14, covers[4])
-        albumList.add(a)
-
-        a = Album("I Need a Doctor", 1, covers[5])
-        albumList.add(a)
-
-        a = Album("Loud", 11, covers[6])
-        albumList.add(a)
-
-        a = Album("Legend", 14, covers[7])
-        albumList.add(a)
-
-        a = Album("Hello", 11, covers[8])
-        albumList.add(a)
-
-        a = Album("Greatest Hits", 17, covers[9])
-        albumList.add(a)
-
-        adapter?.notifyDataSetChanged()
-    }
+//    private fun prepareAlbums() {
+//        val covers = intArrayOf(
+//            R.drawable.album1,
+//            R.drawable.album2,
+//            R.drawable.album3,
+//            R.drawable.album4,
+//            R.drawable.album5,
+//            R.drawable.album6,
+//            R.drawable.album7,
+//            R.drawable.album8,
+//            R.drawable.album9,
+//            R.drawable.album10,
+//            R.drawable.album11
+//        )
+//
+//        var a = Album("True Romance", 13, covers[0])
+//        albumList.add(a)
+//
+//        a = Album("Xscpae", 8, covers[1])
+//        albumList.add(a)
+//
+//        a = Album("Maroon 5", 11, covers[2])
+//        albumList.add(a)
+//
+//        a = Album("Born to Die", 12, covers[3])
+//        albumList.add(a)
+//
+//        a = Album("Honeymoon", 14, covers[4])
+//        albumList.add(a)
+//
+//        a = Album("I Need a Doctor", 1, covers[5])
+//        albumList.add(a)
+//
+//        a = Album("Loud", 11, covers[6])
+//        albumList.add(a)
+//
+//        a = Album("Legend", 14, covers[7])
+//        albumList.add(a)
+//
+//        a = Album("Hello", 11, covers[8])
+//        albumList.add(a)
+//
+//        a = Album("Greatest Hits", 17, covers[9])
+//        albumList.add(a)
+//
+//        adapter?.notifyDataSetChanged()
+//    }
 
 }
 

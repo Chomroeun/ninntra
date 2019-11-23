@@ -11,17 +11,11 @@ class AlbumsAdapter(private val mContext: Context, private val albumList: List<A
     RecyclerView.Adapter<AlbumsAdapter.MyViewHolder>() {
 
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        var title: TextView
-        var count: TextView
-        var thumbnail: ImageView
-        var overflow: ImageView
+        var title: TextView = view.findViewById(R.id.title)
+        var count: TextView = view.findViewById(R.id.count)
+        var thumbnail: ImageView = view.findViewById(R.id.thumbnail) as ImageView
+        var overflow: ImageView = view.findViewById(R.id.overflow) as ImageView
 
-        init {
-            title = view.findViewById(R.id.title)
-            count = view.findViewById(R.id.count)
-            thumbnail = view.findViewById(R.id.thumbnail) as ImageView
-            overflow = view.findViewById(R.id.overflow) as ImageView
-        }
     }
 
 
@@ -42,38 +36,6 @@ class AlbumsAdapter(private val mContext: Context, private val albumList: List<A
 
         holder.overflow.setOnClickListener {
             //showPopupMenu(holder.overflow)
-        }
-    }
-
-    /**
-     * Showing popup menu when tapping on 3 dots
-     */
-    private fun showPopupMenu(view: View) {
-        // inflate menu
-        val popup = PopupMenu(mContext, view)
-        val inflater = popup.getMenuInflater()
-        inflater.inflate(R.menu.menu_album, popup.getMenu())
-        popup.setOnMenuItemClickListener(MyMenuItemClickListener())
-        popup.show()
-    }
-
-    /**
-     * Click listener for popup menu items
-     */
-    internal inner class MyMenuItemClickListener : PopupMenu.OnMenuItemClickListener {
-
-        override fun onMenuItemClick(menuItem: MenuItem): Boolean {
-            when (menuItem.itemId) {
-                R.id.action_add_favourite -> {
-                    Toast.makeText(mContext, "Add to favourite", Toast.LENGTH_SHORT).show()
-                    return true
-                }
-                R.id.action_play_next -> {
-                    Toast.makeText(mContext, "Play next", Toast.LENGTH_SHORT).show()
-                    return true
-                }
-            }
-            return false
         }
     }
 
